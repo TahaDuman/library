@@ -3,10 +3,15 @@
     padding: 0;
 }
 
+form{
+    padding: 1rem;
+}
+
 #books-section{
     margin-top: 2rem;
     display: flex;
-    gap: 5rem;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 #books-section > div{

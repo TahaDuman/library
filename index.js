@@ -10,11 +10,6 @@ function Book(title, author, numPages, read){
     }
 }
 
-const TheMazeRunner = new Book("The Maze Runner" , "James Dashner", "410", "read")
-const TheHobbit = new Book("The Hobbit" , "John Ronald Reuel Tolkien", "310", "not read")
-
-myLibrary.push(TheMazeRunner)
-myLibrary.push(TheHobbit)
 
 function addBookToLibrary(){
     const booksSection = document.getElementById("books-section")
@@ -41,4 +36,17 @@ function addBookToLibrary(){
         i++
     } 
 }
+
+const submitButton = document.getElementById("submit-btn")
+submitButton.addEventListener("click", function(e){
+    e.preventDefault()
+    const bookTitle = document.getElementById("book-title")
+    const author = document.getElementById("author")
+    const numPages =  document.getElementById("numPages")
+    const read = document.getElementById("read")
+    const book = new Book(bookTitle.value, author.value, numPages.value, read.value)
+    myLibrary.push(book)
+    addBookToLibrary()
+})
+
 addBookToLibrary()
