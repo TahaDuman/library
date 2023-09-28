@@ -9,19 +9,22 @@
 <body>
     <form>
         <label for="book-title">Book Title</label>
-        <input type="text" name="bookTitle" id="book-title">
+        <input type="text" name="bookTitle" id="book-title" required>
 
         <label for="author">Author</label>
-        <input type="text" name="author" id="author">
+        <input type="text" name="author" id="author" required>
 
         <label for="numPages">Pages</label>
-        <input type="number" name="numPages" id="numPages">
+        <input type="number" name="numPages" id="numPages" required>
 
         <label for="read">Have you read it?</label>
         <input type="checkbox" name="read" id="read">
-        
+
         <button>Submit</button>
     </form>
+    <div id="books-section">
+
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

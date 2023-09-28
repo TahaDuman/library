@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#books-section{
+    margin-top: 2rem;
+    display: flex;
+    gap: 5rem;
+}
+
+#books-section > div{
+    padding: 1rem;
+    background-color: antiquewhite;
+    border-radius: 1rem;
+}
