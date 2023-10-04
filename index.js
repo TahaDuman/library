@@ -10,7 +10,6 @@ function Book(title, author, numPages, read){
     }
 }
 
-
 function addBookToLibrary(){
     const booksSection = document.getElementById("books-section")
         const booksDiv = document.createElement("div")
@@ -61,7 +60,4 @@ submitButton.addEventListener("click", function(e){
         addBookToLibrary()
         bookSubmitForm.reset()
     }
-
-
-    
 })

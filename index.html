@@ -7,21 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="bookSubmitForm">
-        <label for="book-title">Book Title</label>
-        <input type="text" name="bookTitle" id="book-title" required>
+    <header><h1>YOUR LIBRARY</h1></header>
+        <form id="bookSubmitForm">
+            <div class="input-wrapper">
+                <label for="book-title">Book Title</label>
+                <input type="text" name="bookTitle" id="book-title" required>
+            </div>
 
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author" required>
 
-        <label for="numPages">Pages</label>
-        <input type="number" name="numPages" id="numPages" required>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author" required>
+            </div>
 
-        <label for="read">Have you read it?</label>
-        <input type="checkbox" name="read" id="read" value="read">
+            <div>
+                <label for="numPages">Pages</label>
+                <input type="number" name="numPages" id="numPages" required>
+            </div>
 
-        <button type="submit" id="submit-btn">Submit</button>
-    </form>
+            <div>
+                <label for="read">Have you read it yet?</label>
+                <input type="checkbox" name="read" id="read" value="read">
+            </div>
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
 
     <div id="books-section">
 

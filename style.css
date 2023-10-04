@@ -1,21 +1,45 @@
 *{
     margin: 0;
     padding: 0;
+    --main-bg-color: white;
+    --main-txt-color: black;
+}
+
+body{
+    background-color: var(--main-bg-color);
+    color: var(--main-txt-color)
 }
 
 form{
     padding: 1rem;
 }
 
+#bookSubmitForm{
+    margin: 0 auto;
+    width: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: beige;
+}
+#submit-btn{
+    grid-column: 1 / 3;
+}
+
 #books-section{
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     gap: 1rem;
     padding: 1rem;
+    background-color: beige;
 }
 
 #books-section > div{
     padding: 1rem;
     background-color: antiquewhite;
     border-radius: 1rem;
+}
+
+header > h1{
+    text-align: center;
 }
