@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
+    <form id="bookSubmitForm">
         <label for="book-title">Book Title</label>
         <input type="text" name="bookTitle" id="book-title" required>
 
@@ -18,11 +18,11 @@
         <input type="number" name="numPages" id="numPages" required>
 
         <label for="read">Have you read it?</label>
-        <input type="checkbox" name="read" id="read">
+        <input type="checkbox" name="read" id="read" value="read">
 
         <button type="submit" id="submit-btn">Submit</button>
     </form>
-    
+
     <div id="books-section">
 
     </div>
