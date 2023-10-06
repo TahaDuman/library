@@ -1,13 +1,14 @@
 *{
-    margin: 0;
     padding: 0;
     --main-bg-color: white;
-    --main-txt-color: black;
+    --main-font-color: black;
+    --main-font-size: 1rem;
+    box-sizing: border-box;
 }
 
 body{
     background-color: var(--main-bg-color);
-    color: var(--main-txt-color)
+    color: var(--main-font-color)
 }
 
 form{
@@ -16,12 +17,15 @@ form{
 
 #bookSubmitForm{
     margin: 0 auto;
-    width: 40%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     background-color: beige;
 }
+#bookSubmitForm > div{
+    padding: .5rem;
+}
+
 #submit-btn{
     grid-column: 1 / 3;
 }
@@ -42,4 +46,20 @@ form{
 
 header > h1{
     text-align: center;
+}
+
+dialog{
+    background-color: beige;
+}
+
+dialog > form{
+    margin: 0 auto;
+}
+
+#show-btn{
+    display: block;
+    margin: 0 auto;
+    padding: .7rem;
+    font-size: 1rem;
+    font-weight: normal;
 }

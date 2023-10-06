@@ -59,5 +59,12 @@ submitButton.addEventListener("click", function(e){
         myLibrary.push(book)
         addBookToLibrary()
         bookSubmitForm.reset()
+        dialog.close()
     }
+})
+
+const dialog = document.querySelector("dialog");
+const addBookBtn = document.getElementById("show-btn")
+addBookBtn.addEventListener("click", () =>{
+    dialog.showModal()
 })
