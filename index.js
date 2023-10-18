@@ -15,15 +15,25 @@ function addBookToLibrary(){
         const booksDiv = document.createElement("div")
         booksSection.append(booksDiv)
 
-        const titlePart = document.createElement("p") 
+        const titlePart = document.createElement("h3") 
         booksDiv.append(titlePart) 
         titlePart.innerText = myLibrary[myLibrary.length - 1].title
         
-        const authorPart = document.createElement("p") 
+        const authorPart = document.createElement("p")
+        const authorTag = document.createElement("p")
+        authorTag.classList.add("tags")
+        authorPart.classList.add("inline")
+        authorTag.innerText = "Author: "
+        booksDiv.append(authorTag)
         booksDiv.append(authorPart) 
         authorPart.innerText = myLibrary[myLibrary.length - 1].author
 
         const numPagesPart = document.createElement("p") 
+        const numPagesTag = document.createElement("p")
+        numPagesTag.classList.add("tags")
+        numPagesPart.classList.add("inline")
+        numPagesTag.innerText = "Number of pages: "
+        booksDiv.append(numPagesTag)
         booksDiv.append(numPagesPart) 
         numPagesPart.innerText = myLibrary[myLibrary.length - 1].numPages
 
@@ -34,6 +44,17 @@ function addBookToLibrary(){
 
 const submitButton = document.getElementById("submit-btn")
 const bookSubmitForm = document.getElementById("bookSubmitForm")
+
+const dialog = document.querySelector("dialog");
+const addBookBtn = document.getElementById("show-btn")
+addBookBtn.addEventListener("click", () =>{
+    dialog.showModal()
+})
+
+const closeDialogBtn = document.querySelector(".dialog-close-btn")
+closeDialogBtn.addEventListener("click", () =>{
+    dialog.close()
+})
 
 submitButton.addEventListener("click", function(e){
     e.preventDefault()
@@ -61,10 +82,4 @@ submitButton.addEventListener("click", function(e){
         bookSubmitForm.reset()
         dialog.close()
     }
-})
-
-const dialog = document.querySelector("dialog");
-const addBookBtn = document.getElementById("show-btn")
-addBookBtn.addEventListener("click", () =>{
-    dialog.showModal()
 })
