@@ -3,6 +3,8 @@
     --main-bg-color: white;
     --main-font-color: black;
     --main-font-size: 1rem;
+    --read-color: green;
+    --notread-color: red;
     box-sizing: border-box;
 }
 
@@ -91,4 +93,12 @@ dialog > form{
     justify-content: space-between;
     padding: .5rem  .5rem 0 .5rem;
     margin: 0;
+}
+
+.read-part{
+    padding: .5rem;
+    text-align: center;
+    background-color: var(--notread-color);
+    cursor: pointer;
+    border-radius: 1rem;
 }

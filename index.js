@@ -19,26 +19,39 @@ function addBookToLibrary(){
         booksDiv.append(titlePart) 
         titlePart.innerText = myLibrary[myLibrary.length - 1].title
         
+        //
+        const authorDiv = document.createElement("div")
+
         const authorPart = document.createElement("p")
         const authorTag = document.createElement("p")
+        authorDiv.classList.add("author-div")
         authorTag.classList.add("tags")
         authorPart.classList.add("inline")
         authorTag.innerText = "Author: "
-        booksDiv.append(authorTag)
-        booksDiv.append(authorPart) 
+        authorDiv.append(authorTag)
+        authorDiv.append(authorPart) 
+        booksDiv.append(authorDiv)
         authorPart.innerText = myLibrary[myLibrary.length - 1].author
+        //
+        const numPagesDiv = document.createElement("div")
 
         const numPagesPart = document.createElement("p") 
         const numPagesTag = document.createElement("p")
+        numPagesDiv.classList.add("num-pages-div")
         numPagesTag.classList.add("tags")
         numPagesPart.classList.add("inline")
         numPagesTag.innerText = "Number of pages: "
-        booksDiv.append(numPagesTag)
-        booksDiv.append(numPagesPart) 
+        numPagesDiv.append(numPagesTag)
+        numPagesDiv.append(numPagesPart) 
+        booksDiv.append(numPagesDiv)
         numPagesPart.innerText = myLibrary[myLibrary.length - 1].numPages
 
         const readPart = document.createElement("p") 
-        booksDiv.append(readPart) 
+        readPart.classList.add("read-part")
+        booksDiv.append(readPart)
+        if(myLibrary[myLibrary.length - 1].read == "already read"){
+            readPart.style.backgroundColor = "var(--read-color)"
+        }
         readPart.innerText = myLibrary[myLibrary.length - 1].read
 }
 
@@ -83,3 +96,10 @@ submitButton.addEventListener("click", function(e){
         dialog.close()
     }
 })
+
+/*        const readPart = document.querySelector(".read-part")
+readPart.addEventListener("click", (e)=>{
+    console.log("you clicked read part")
+    console.log(e.target)
+    })
+*/
