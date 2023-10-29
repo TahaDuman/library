@@ -52,6 +52,9 @@ function addBookToLibrary(){
         if(myLibrary[myLibrary.length - 1].read == "already read"){
             readPart.style.backgroundColor = "var(--read-color)"
         }
+
+        booksDiv.dataset.indexNumber = myLibrary.length - 1
+
         readPart.innerText = myLibrary[myLibrary.length - 1].read
 }
 
@@ -73,33 +76,34 @@ submitButton.addEventListener("click", function(e){
     e.preventDefault()
     const bookTitle = document.getElementById("book-title")
     const author = document.getElementById("author")
-    const numPages =  document.getElementById("numPages")
-    let read = document.getElementById("read")
-
+    const numPages = document.getElementById("numPages")
+    const readCheckbox = document.getElementById("read")
+  
     if(bookTitle.value == ""){
-        bookTitle.setCustomValidity("Book Title must be filled")
-        bookTitle.reportValidity()
+      bookTitle.setCustomValidity("Book Title must be filled")
+      bookTitle.reportValidity()
     } else if(author.value == ""){
-        author.setCustomValidity("Author section must be filled")
-        author.reportValidity()
+      author.setCustomValidity("Author section must be filled")
+      author.reportValidity()
     } else if(numPages.value == ""){
-        numPages.setCustomValidity("Number of pages section must be filled with number")
-        numPages.reportValidity()
+      numPages.setCustomValidity("Number of pages section must be filled with number")
+      numPages.reportValidity()
     } else {
-        if(read.checked == false){
-            read.value = "not read"
-        }
-        const book = new Book(bookTitle.value, author.value, numPages.value, read.value)
-        myLibrary.push(book)
-        addBookToLibrary()
-        bookSubmitForm.reset()
-        dialog.close()
+      let read = "not read"
+      if (readCheckbox.checked) {
+        read = "already read"
+      }
+  
+      const book = new Book(bookTitle.value, author.value, numPages.value, read)
+      myLibrary.push(book)
+      addBookToLibrary()
+      bookSubmitForm.reset()
+      dialog.close()
     }
-})
+  })
 
-/*        const readPart = document.querySelector(".read-part")
-readPart.addEventListener("click", (e)=>{
+/*     const readPart = document.querySelector(".read-part")
+    readPart.addEventListener("click", (e)=>{
     console.log("you clicked read part")
     console.log(e.target)
-    })
-*/
+    }) */
