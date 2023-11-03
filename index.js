@@ -56,6 +56,32 @@ function addBookToLibrary(){
         booksDiv.dataset.indexNumber = myLibrary.length - 1
 
         readPart.innerText = myLibrary[myLibrary.length - 1].read
+
+        let indReadPart = document.querySelectorAll(".read-part")
+        for (const readPartElement of indReadPart){
+          readPartElement.addEventListener("click", function(e){
+            let targetedReadPart = e.target.closest("[data-index-number]")
+            let currentIndexNum = Number(targetedReadPart.dataset.indexNumber)
+            switch (myLibrary[currentIndexNum].read){
+              case "already read":
+                myLibrary[currentIndexNum].read = "not read"
+                targetedReadPart.lastChild.textContent =  "not read"
+                break
+              case  "not read":
+                myLibrary[currentIndexNum].read = "already read"
+                targetedReadPart.lastChild.textContent =  "already read"
+                break
+            } 
+            
+          })
+        }
+
+        /*indReadPart.addEventListener("click", (e)=>{
+          let targetedReadPart = e.target.closest("[data-index-number]")
+          let targetedIndexNumber = targetedReadPart.dataset 
+          console.log(targetedIndexNumber)
+          console.log(targetedReadPart)
+        })*/
 }
 
 const submitButton = document.getElementById("submit-btn")
@@ -99,11 +125,6 @@ submitButton.addEventListener("click", function(e){
       addBookToLibrary()
       bookSubmitForm.reset()
       dialog.close()
+
     }
   })
-
-/*     const readPart = document.querySelector(".read-part")
-    readPart.addEventListener("click", (e)=>{
-    console.log("you clicked read part")
-    console.log(e.target)
-    }) */
