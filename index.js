@@ -66,24 +66,25 @@ function addBookToLibrary(){
               case "already read":
                 myLibrary[currentIndexNum].read = "not read"
                 targetedReadPart.lastChild.textContent =  "not read"
+                changeReadPartColors(targetedReadPart)
                 break
               case  "not read":
                 myLibrary[currentIndexNum].read = "already read"
                 targetedReadPart.lastChild.textContent =  "already read"
+                changeReadPartColors(targetedReadPart)
                 break
             } 
             
           })
         }
-
-        /*indReadPart.addEventListener("click", (e)=>{
-          let targetedReadPart = e.target.closest("[data-index-number]")
-          let targetedIndexNumber = targetedReadPart.dataset 
-          console.log(targetedIndexNumber)
-          console.log(targetedReadPart)
-        })*/
 }
 
+function changeReadPartColors(div){
+  
+  if(div.lastChild.innerText == "already read"){
+    div.lastChild.style.backgroundColor = "var(--read-color)"
+  } else div.lastChild.style.backgroundColor = "var(--notread-color)"
+}
 const submitButton = document.getElementById("submit-btn")
 const bookSubmitForm = document.getElementById("bookSubmitForm")
 
@@ -125,6 +126,5 @@ submitButton.addEventListener("click", function(e){
       addBookToLibrary()
       bookSubmitForm.reset()
       dialog.close()
-
     }
   })
