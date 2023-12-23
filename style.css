@@ -1,22 +1,53 @@
 *{
     padding: 0;
+    margin: 0;
     --main-bg-color: white;
     --main-font-color: black;
     --main-font-size: 1rem;
     --read-color: green;
     --notread-color: red;
+    --btn-box-shadow: 0 5px 11px 0 rgba(0,0,0,.16),0 4px 15px 0 rgba(0,0,0,.13);
     box-sizing: border-box;
+}
+header{
+    background-color: white;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 body{
     background-color: var(--main-bg-color);
     color: var(--main-font-color);
     font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
 }
 
 form{
     padding: 1rem;
 }
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #009688;  /* Primary color */
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;  /* Smooth hover transition */
+  }
+  button:hover {
+    background-color: #00796B;  /* Darker shade of primary color */
+  }
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
 #bookSubmitForm{
     margin: 0 auto;
@@ -24,7 +55,7 @@ form{
     padding-top: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    background-color: beige;
+    background-color: whitesmoke;
 }
 #bookSubmitForm > div{
     padding: .5rem;
@@ -39,13 +70,22 @@ form{
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    background-color: beige;
+    background-color: whitesmoke;
 }
 
 #books-section > div{
     padding: 1rem;
-    background-color: antiquewhite;
+    background-color: white;
     border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#books-section > div > *{
+    padding: .5rem;
+}
+#books-section > div > button{
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem;
 }
 
 header > h1{
@@ -53,7 +93,8 @@ header > h1{
 }
 
 dialog{
-    background-color: beige;
+    background-color: whitesmoke;
+    margin: auto;
 }
 
 dialog > form{
@@ -62,7 +103,7 @@ dialog > form{
 
 #show-btn{
     display: block;
-    margin: 0 auto;
+    margin: 25px auto;
     padding: .7rem;
     font-size: 1rem;
     font-weight: normal;
@@ -80,7 +121,6 @@ dialog > form{
     font-weight: bold;
     align-items: end;
     padding: .5rem;
-    background-color: beige;
 }
 
 .dialog-header > h3{
@@ -97,6 +137,7 @@ dialog > form{
 
 .read-part{
     padding: .5rem;
+    color: white;
     text-align: center;
     background-color: var(--notread-color);
     cursor: pointer;
