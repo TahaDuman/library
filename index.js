@@ -57,11 +57,11 @@ function addBookToLibrary(){
         readPart.innerText = myLibrary[myLibrary.length - 1].read
 
         
-        const editReadStatusBtn = document.createElement("button");
+        let editReadStatusBtn = document.createElement("button");
         editReadStatusBtn.textContent = "Edit read status";
         editReadStatusBtn.addEventListener("click", function() {
           // Get the index of the book in the myLibrary array.
-          const bookIndex = this.closest("[data-index-number]").dataset.indexNumber;
+          let bookIndex = this.closest("[data-index-number]").dataset.indexNumber;
           // Toggle the read status of the book.
           myLibrary[bookIndex].read = myLibrary[bookIndex].read === "already read" ? "not read" : "already read";
           // Update the read status of the book element.
@@ -77,6 +77,10 @@ function addBookToLibrary(){
           const bookIndex = this.closest("[data-index-number]").dataset.indexNumber;
           this.closest("[data-index-number]").remove()
           myLibrary.splice(bookIndex, 1)
+          const booksDivs = document.querySelectorAll("#books-section div[data-index-number]");
+          booksDivs.forEach((div, i) => {
+              div.dataset.indexNumber = i;
+          });
         })
         booksDiv.append(removeBookBtn)
 }
