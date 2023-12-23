@@ -19,7 +19,6 @@ function addBookToLibrary(){
         booksDiv.append(titlePart) 
         titlePart.innerText = myLibrary[myLibrary.length - 1].title
         
-        //
         const authorDiv = document.createElement("div")
 
         const authorPart = document.createElement("p")
@@ -57,34 +56,29 @@ function addBookToLibrary(){
 
         readPart.innerText = myLibrary[myLibrary.length - 1].read
 
-        let indReadPart = document.querySelectorAll(".read-part")
-        for (const readPartElement of indReadPart){
-          readPartElement.addEventListener("click", function(e){
-            let targetedReadPart = e.target.closest("[data-index-number]")
-            let currentIndexNum = Number(targetedReadPart.dataset.indexNumber)
-            switch (myLibrary[currentIndexNum].read){
-              case "already read":
-                myLibrary[currentIndexNum].read = "not read"
-                targetedReadPart.lastChild.textContent =  "not read"
-                changeReadPartColors(targetedReadPart)
-                break
-              case  "not read":
-                myLibrary[currentIndexNum].read = "already read"
-                targetedReadPart.lastChild.textContent =  "already read"
-                changeReadPartColors(targetedReadPart)
-                break
-            } 
-            
-          })
-        }
+        
+        const editReadStatusBtn = document.createElement("button");
+        editReadStatusBtn.textContent = "Edit read status";
+        editReadStatusBtn.addEventListener("click", function() {
+          // Get the index of the book in the myLibrary array.
+          const bookIndex = this.closest("[data-index-number]").dataset.indexNumber;
+          // Toggle the read status of the book.
+          myLibrary[bookIndex].read = myLibrary[bookIndex].read === "already read" ? "not read" : "already read";
+          // Update the read status of the book element.
+          this.previousSibling.textContent = myLibrary[bookIndex].read;
+          changeReadPartColors(this.closest("[data-index-number]"))
+        });
+        // Append the edit read status button to the book element.
+        booksDiv.append(editReadStatusBtn)
 }
 
 function changeReadPartColors(div){
-  
-  if(div.lastChild.innerText == "already read"){
-    div.lastChild.style.backgroundColor = "var(--read-color)"
-  } else div.lastChild.style.backgroundColor = "var(--notread-color)"
+  const secondLastChild = div.lastChild.previousElementSibling;
+  if(secondLastChild.innerText == "already read"){
+    secondLastChild.style.backgroundColor = "var(--read-color)"
+  } else secondLastChild.style.backgroundColor = "var(--notread-color)"
 }
+
 const submitButton = document.getElementById("submit-btn")
 const bookSubmitForm = document.getElementById("bookSubmitForm")
 
