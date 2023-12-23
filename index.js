@@ -70,10 +70,19 @@ function addBookToLibrary(){
         });
         // Append the edit read status button to the book element.
         booksDiv.append(editReadStatusBtn)
+
+        const removeBookBtn = document.createElement("button");
+        removeBookBtn.textContent = "Remove Book"
+        removeBookBtn.addEventListener("click", function(){
+          const bookIndex = this.closest("[data-index-number]").dataset.indexNumber;
+          this.closest("[data-index-number]").remove()
+          myLibrary.splice(bookIndex, 1)
+        })
+        booksDiv.append(removeBookBtn)
 }
 
 function changeReadPartColors(div){
-  const secondLastChild = div.lastChild.previousElementSibling;
+  const secondLastChild = div.lastChild.previousElementSibling.previousElementSibling;
   if(secondLastChild.innerText == "already read"){
     secondLastChild.style.backgroundColor = "var(--read-color)"
   } else secondLastChild.style.backgroundColor = "var(--notread-color)"
